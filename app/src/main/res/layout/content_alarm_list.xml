@@ -9,29 +9,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.amberyork.wakeme.MainActivity"
-    tools:showIn="@layout/activity_main">
-
-
+    tools:context="com.amberyork.wakeme.AlarmListActivity"
+    tools:showIn="@layout/activity_alarm_list">
 
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:name="com.amberyork.wakeme.MenuFragment"
-        android:id="@+id/fragment"
-        tools:layout="@layout/menu_fragment"
+        android:id="@+id/fragment2"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/welcome_text"
-        android:id="@+id/welcomeText"
-        android:layout_below="@+id/fragment"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
-
-
+        tools:layout="@layout/menu_fragment" />
 </RelativeLayout>

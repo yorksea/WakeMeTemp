@@ -6,6 +6,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.content.Intent;
 
 //for plotting
 
@@ -47,7 +50,7 @@ public class SleepSessionActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // we add 1000 new entries
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 2000; i++) {
                     final double Y = i;
                     runOnUiThread(new Runnable() {
 
@@ -80,9 +83,29 @@ public class SleepSessionActivity extends AppCompatActivity {
     private void addEntry(int min, int max) {
         // here, we choose to display max 10 points on the viewport and we scroll to end
       //  series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 30d), true, 30);
-        series.appendData(new DataPoint(lastX++, (RANDOM.nextInt((max - min) + 1) + min)*1.0), true, 300);
+        series.appendData(new DataPoint(lastX++, (RANDOM.nextInt((max - min) + 1) + min)*1.0), true, 200);
       //the 400 is how many points to display before scrolling
 
     }
+
+    //have to add getActivity(). if in fragment, before get app context or it won't work.
+    public void goToAlarmListActivity (View view){
+        Intent intent = new Intent (getApplicationContext(), AlarmListActivity.class);
+        startActivity(intent);
+    }
+
+    //// view sleep chart
+
+    public void goToSleepSessionActivity (View view){
+        Intent intent = new Intent (getApplicationContext(), SleepSessionActivity.class);
+        startActivity(intent);
+    }
+    //// main activiy
+
+    public void goToMainActivity (View view){
+        Intent intent = new Intent (getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
 
 }

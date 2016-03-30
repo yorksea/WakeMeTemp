@@ -3,4 +3,15 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_sleep_session">SleepSessionActivity</string>
     <string name="viewSleepSession">View Sleep Session</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_alarm_list">AlarmListActivity</string>
+
+    <!--for fragment-->
+    <string name="home">HOME</string>
+    <string name="alarm_list">Alarm List</string>
+    <string name="sleep_session">Sleep Session</string>
+    <string name="welcome_text">Welcome to WakeMe!</string>
+
 </resources>
