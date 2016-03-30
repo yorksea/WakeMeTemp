@@ -34,7 +34,7 @@ public class SleepSessionActivity extends AppCompatActivity {
         Viewport viewport = graph.getViewport();
         viewport.setYAxisBoundsManual(true);
         viewport.setMinY(0);
-        viewport.setMaxY(10);
+        viewport.setMaxY(30);
         viewport.setScrollable(true);
     }
 
@@ -46,13 +46,22 @@ public class SleepSessionActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                // we add 100 new entries
-                for (int i = 0; i < 100; i++) {
+                // we add 1000 new entries
+                for (int i = 0; i < 1000; i++) {
+                    final double Y = i;
                     runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
-                            addEntry();
+                             if (Y % 100 > 10 && Y %100 < 30) {
+                                addEntry(2,5);//rem1
+                             } else if (Y % 100 > 60 && Y %100 < 75) {
+                                 addEntry(3,7);//rem2
+                             } else if (Y % 100 > 75 ) {
+                                 addEntry(26,29); //shallow1
+                             } else{
+                                addEntry(23,27); //shallow2
+                             }
                         }
                     });
 
@@ -68,9 +77,12 @@ public class SleepSessionActivity extends AppCompatActivity {
     }
 
     // add random data to graph
-    private void addEntry() {
+    private void addEntry(int min, int max) {
         // here, we choose to display max 10 points on the viewport and we scroll to end
-        series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 10d), true, 10);
+      //  series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 30d), true, 30);
+        series.appendData(new DataPoint(lastX++, (RANDOM.nextInt((max - min) + 1) + min)*1.0), true, 300);
+      //the 400 is how many points to display before scrolling
+
     }
 
 }
