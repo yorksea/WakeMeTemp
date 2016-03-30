@@ -28,15 +28,19 @@ public class SleepSessionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_session);
-        // we get graph view instance
+
+        //  view instance setting up for sleep plot
         GraphView graph = (GraphView) findViewById(R.id.graph);
-        // data
+        // data series def
         series = new LineGraphSeries<DataPoint>();
+
+
         graph.addSeries(series);
         // customize a little bit viewport
         Viewport viewport = graph.getViewport();
         viewport.setYAxisBoundsManual(true);
         viewport.setMinY(0);
+        //setting Y to 30 because in the simulation the max that will happen is 29
         viewport.setMaxY(30);
         viewport.setScrollable(true);
     }
@@ -44,18 +48,22 @@ public class SleepSessionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // we're going to simulate real time with thread that append data to the graph
+        // This simulates real time sleep motion data that will be stored later
         new Thread(new Runnable() {
 
             @Override
             public void run() {
-                // we add 1000 new entries
+                // add 2000 new data points, it will start scrolling after 200 points
+                //the 200 point limit is controlled when passed in appendData below
                 for (int i = 0; i < 2000; i++) {
                     final double Y = i;
                     runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
+
+                            //if statement to generate data poitns at different thresholds
+                            //   to make it look like different sleep stages
                              if (Y % 100 > 10 && Y %100 < 30) {
                                 addEntry(2,5);//rem1
                              } else if (Y % 100 > 60 && Y %100 < 75) {
@@ -81,13 +89,14 @@ public class SleepSessionActivity extends AppCompatActivity {
 
     // add random data to graph
     private void addEntry(int min, int max) {
-        // here, we choose to display max 10 points on the viewport and we scroll to end
+       // scroll to end
       //  series.appendData(new DataPoint(lastX++, RANDOM.nextDouble() * 30d), true, 30);
         series.appendData(new DataPoint(lastX++, (RANDOM.nextInt((max - min) + 1) + min)*1.0), true, 200);
-      //the 400 is how many points to display before scrolling
+      //the 200 is how many points to display before scrolling
 
     }
 
+    //these "goTo" methods are used in the menu fragment
     //have to add getActivity(). if in fragment, before get app context or it won't work.
     public void goToAlarmListActivity (View view){
         Intent intent = new Intent (getApplicationContext(), AlarmListActivity.class);
