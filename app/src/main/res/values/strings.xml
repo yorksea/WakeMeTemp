@@ -13,5 +13,14 @@
     <string name="alarm_list">Alarm List</string>
     <string name="sleep_session">Sleep Session</string>
     <string name="welcome_text">Welcome to WakeMe!</string>
+    <string name="sleepChartCaption">Dynamic plot of sleep movements shows states of sleep.</string>
+
+
+    <string-array name="Alarms">
+        <item>Mon : 7:35 AM</item>
+        <item>Mon : 10:00 PM</item>
+        <item>Fri : 8:30 AM</item>
+        <item>Sat : 10:00 AM</item>
+    </string-array>
 
 </resources>

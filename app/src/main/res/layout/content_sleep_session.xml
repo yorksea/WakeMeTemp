@@ -12,12 +12,23 @@
     tools:context="com.amberyork.wakeme.SleepSessionActivity"
     tools:showIn="@layout/activity_sleep_session">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sleep Chart"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/fragment3"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:padding="5dp" />
+
     <!-- we add graph view to display -->
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_below="@+id/fragment3"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -29,5 +40,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/menu_fragment" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sleepChartCaption"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/graph"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp" />
+
+
 
 </RelativeLayout>

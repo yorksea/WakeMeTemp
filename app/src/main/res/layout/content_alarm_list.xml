@@ -20,4 +20,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         tools:layout="@layout/menu_fragment" />
+
+    <fragment
+        android:id="@+id/alarm_list_fragment"
+        android:name="com.amberyork.wakeme.AlarmListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/alarm_list"
+        android:layout_below="@+id/fragment2" />
+
 </RelativeLayout>
