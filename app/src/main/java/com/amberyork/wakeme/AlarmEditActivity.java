@@ -10,12 +10,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 
-public class AlarmListActivity extends AppCompatActivity {
+
+public class AlarmEditActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm_list);
+        setContentView(R.layout.activity_alarm_edit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,29 +31,13 @@ public class AlarmListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    //have to add getActivity(). if in fragment, before get app context or it won't work.
+
+
+
     public void goToAlarmListActivity (View view){
         Intent intent = new Intent (getApplicationContext(), AlarmListActivity.class);
         startActivity(intent);
     }
 
-    //// view sleep chart
-
-    public void goToSleepSessionActivity (View view){
-        Intent intent = new Intent (getApplicationContext(), SleepSessionActivity.class);
-        startActivity(intent);
-    }
-    //// main activiy
-
-    public void goToMainActivity (View view){
-        Intent intent = new Intent (getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-    }
-
-//just for list activity
-public void goToAlarmEditActivity (View view){
-    Intent intent = new Intent (getApplicationContext(), AlarmEditActivity.class);
-    startActivity(intent);
-}
 
 }

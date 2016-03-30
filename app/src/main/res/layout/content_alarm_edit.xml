@@ -9,35 +9,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.amberyork.wakeme.AlarmListActivity"
-    tools:showIn="@layout/activity_alarm_list">
-
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.amberyork.wakeme.MenuFragment"
-        android:id="@+id/fragment2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        tools:layout="@layout/menu_fragment" />
-
-    <fragment
-        android:id="@+id/alarm_list_fragment"
-        android:name="com.amberyork.wakeme.AlarmListFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/alarm_list"
-        android:layout_below="@+id/fragment2" />
+    tools:context="com.amberyork.wakeme.AlarmEditActivity"
+    tools:showIn="@layout/activity_alarm_edit">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+ Alarm"
-        android:id="@+id/newAlarm"
-        android:layout_alignParentBottom="true"
+        android:text="Back to Alarm List"
+        android:id="@+id/backtolist"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:onClick="goToAlarmEditActivity"
+        android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/timePicker"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="59dp"
-        android:onClick="goToAlarmEditActivity" />
-
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
 </RelativeLayout>

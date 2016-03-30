@@ -42,6 +42,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.amberyork.wakeme.MainActivity" />
         </activity>
+        <activity
+            android:name=".AlarmEditActivity"
+            android:label="@string/title_activity_alarm_edit"
+            android:parentActivityName=".AlarmListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.AlarmListActivity" />
+        </activity>
     </application>
 
 </manifest>
