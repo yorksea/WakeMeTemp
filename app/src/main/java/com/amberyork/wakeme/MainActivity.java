@@ -9,8 +9,20 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Toast;
+
+import java.util.List;
+
+/*
+TODO:
+add LOG
+incorporate smart_period
+edit theme colors
+ */
+
 
 public class MainActivity extends AppCompatActivity {
+    //for sqlite db
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
+
+   } //end onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,5 +83,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //toast for testing
+    private void toast(String aToast){
+        Toast.makeText(getApplicationContext(), aToast, 5000).show();
+    }
 
 }

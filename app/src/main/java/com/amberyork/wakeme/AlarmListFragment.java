@@ -13,6 +13,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AlarmListFragment extends ListFragment implements OnItemClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class AlarmListFragment extends ListFragment implements OnItemClickListen
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position,long id) {

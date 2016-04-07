@@ -51,6 +51,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.amberyork.wakeme.AlarmListActivity" />
         </activity>
+
+        <uses-permission android:name="android.permission.INTERNET" />
     </application>
 
 </manifest>

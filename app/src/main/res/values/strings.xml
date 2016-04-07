@@ -17,11 +17,14 @@
 
 
     <string-array name="Alarms">
+    <!-- bottled data for testing -->
         <item>Mon : 7:35 AM</item>
         <item>Mon : 10:00 PM</item>
         <item>Fri : 8:30 AM</item>
         <item>Sat : 10:00 AM</item>
+
     </string-array>
     <string name="title_activity_alarm_edit">AlarmEditActivity</string>
+    <string name="removeButton">DELETE</string>
 
 </resources>

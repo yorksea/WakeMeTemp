@@ -1,5 +1,7 @@
 package com.amberyork.wakeme;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class AlarmListActivity extends AppCompatActivity {
 
@@ -28,6 +31,24 @@ public class AlarmListActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // toast("started alarm list");
+
+        //show data from db for demo purposes and then toast it
+        DBHelper DbHelper = new DBHelper(getApplicationContext());
+        SQLiteDatabase db = DbHelper.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT set_time from alarm ", null);
+
+
+        if (c != null && c.moveToFirst()) {
+            c.moveToLast();
+            String alarmVal = c.getString(c.getColumnIndexOrThrow(DBHelper.COLUMN_ALARM_SET_TIME));
+            toast("Latest Alarm Added: "+alarmVal);
+        } else {
+            toast("No alarms in db yet");
+        }
+        c.close();
+        db.close();
     }
 
     //have to add getActivity(). if in fragment, before get app context or it won't work.
@@ -54,5 +75,10 @@ public void goToAlarmEditActivity (View view){
     Intent intent = new Intent (getApplicationContext(), AlarmEditActivity.class);
     startActivity(intent);
 }
+
+    //toast for testing
+    private void toast(String aToast){
+        Toast.makeText(getApplicationContext(), aToast, 10000).show();
+    }
 
 }
