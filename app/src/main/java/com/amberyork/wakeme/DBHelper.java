@@ -17,7 +17,7 @@ import 	java.util.ArrayList;
 public class DBHelper  extends SQLiteOpenHelper {
 
     // DB INFO: VERSION/NAME,ETC
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "wakeMe";
 
     // Table Names
