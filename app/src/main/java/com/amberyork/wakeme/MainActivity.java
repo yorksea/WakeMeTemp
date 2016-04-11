@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+//for navigation drawer
+//import android.support.v4.widget.DrawerLayout;
+
 /*
 TODO:
 add LOG
@@ -51,17 +54,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch(item.getItemId()) {
+            case R.id.action_motion_display:
+                Intent intent = new Intent(this, MotionDisplayActivity.class);
+                this.startActivity(intent);
+                break;
+            case R.id.action_settings:
+                // TODO add intent for settings once created (uncomment break, remove return)
+               // break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     //have to add getActivity(). if in fragment, before get app context or it won't work.
@@ -87,5 +94,6 @@ public class MainActivity extends AppCompatActivity {
     private void toast(String aToast){
         Toast.makeText(getApplicationContext(), aToast, 5000).show();
     }
+
 
 }

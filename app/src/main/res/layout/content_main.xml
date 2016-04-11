@@ -13,7 +13,6 @@
     tools:showIn="@layout/activity_main">
 
 
-
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +44,6 @@
         android:adjustViewBounds="false"
         android:layout_alignRight="@+id/fragment"
         android:layout_alignEnd="@+id/fragment" />
-
 
 
 

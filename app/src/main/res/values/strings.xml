@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">WakeMe</string>
+    <!--menu strings-->
     <string name="action_settings">Settings</string>
+    <string name="action_motion_display">Motion Display</string>
+
     <string name="title_activity_sleep_session">SleepSessionActivity</string>
     <string name="viewSleepSession">View Sleep Session</string>
 
@@ -17,7 +20,7 @@
 
 
     <string-array name="Alarms">
-    <!-- bottled data for testing -->
+        <!-- bottled data for testing -->
         <item>Mon : 7:35 AM</item>
         <item>Mon : 10:00 PM</item>
         <item>Fri : 8:30 AM</item>
@@ -26,5 +29,6 @@
     </string-array>
     <string name="title_activity_alarm_edit">AlarmEditActivity</string>
     <string name="removeButton">DELETE</string>
+    <string name="title_activity_motion_display">MotionDisplayActivity</string>
 
 </resources>
