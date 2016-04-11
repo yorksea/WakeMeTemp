@@ -33,22 +33,10 @@ public class AlarmListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
        // toast("started alarm list");
 
-        //show data from db for demo purposes and then toast it
-        DBHelper DbHelper = new DBHelper(getApplicationContext());
-        SQLiteDatabase db = DbHelper.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT set_time from alarm ", null);
-
-
-        if (c != null && c.moveToFirst()) {
-            c.moveToLast();
-            String alarmVal = c.getString(c.getColumnIndexOrThrow(DBHelper.COLUMN_ALARM_SET_TIME));
-            toast("Latest Alarm Added: "+alarmVal);
-        } else {
-            toast("No alarms in db yet");
-        }
-        c.close();
-        db.close();
+        //get data from db and then toast it
+        DBHelper dbHelper = new DBHelper(getApplicationContext());
+        String lastAlarm = dbHelper.getLastAlarmString();
+        toast(lastAlarm);
     }
 
     //have to add getActivity(). if in fragment, before get app context or it won't work.

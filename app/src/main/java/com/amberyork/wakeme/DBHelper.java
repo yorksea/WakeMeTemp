@@ -171,7 +171,23 @@ public class DBHelper  extends SQLiteOpenHelper {
         return data;
     }
 
+    // function to toast last added alarm
+    public String getLastAlarmString(){
+        SQLiteDatabase db = this.getReadableDatabase();
+      //  Cursor c = db.rawQuery(selectQuery, null);
 
+        Cursor c = db.rawQuery("SELECT set_time from alarm ", null);
+        String lastAlarmString =   "No alarms in db yet";
+        if (c != null && c.moveToFirst()) {
+            c.moveToLast();
+            String alarmVal = c.getString(c.getColumnIndexOrThrow(DBHelper.COLUMN_ALARM_SET_TIME));
+            lastAlarmString =  "Latest Alarm Added: "+alarmVal;
+        }
+
+        c.close();
+        db.close();
+        return lastAlarmString;
+    }
     /*
  * Updating an alarm so if you want to just change the time
  * TODO : create ui experince to do this action
@@ -220,6 +236,5 @@ public class DBHelper  extends SQLiteOpenHelper {
         // create new tables
         onCreate(db);
     }
-
 
 }//DBHelper class
