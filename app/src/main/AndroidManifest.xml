@@ -53,10 +53,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.amberyork.wakeme.AlarmListActivity" />
         </activity>
-
         <activity
             android:name=".MotionDisplayActivity"
             android:label="@string/title_activity_motion_display"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.amberyork.wakeme.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AlarmTriggerActivity"
+            android:label="@string/title_activity_alarm_trigger"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

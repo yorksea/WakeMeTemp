@@ -1,6 +1,8 @@
 package com.amberyork.wakeme;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.app.Activity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +13,19 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.widget.Toast;
 
-import java.util.List;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.URL;
+import javax.net.ssl.HttpsURLConnection;
+import android.os.AsyncTask;
+import java.net.URLEncoder;
+import java.net.MalformedURLException;
 
-//for navigation drawer
-//import android.support.v4.widget.DrawerLayout;
-
+import android.os.SystemClock;
+import android.net.Uri;
 /*
 TODO:
 add LOG
@@ -26,15 +36,17 @@ edit theme colors
 
 public class MainActivity extends AppCompatActivity {
     //for sqlite db
+    private static final String TAG = "MainActivityLOG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-   } //end onCreate
+
+    } //end onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,12 +71,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_motion_display:
                 Intent intent = new Intent(this, MotionDisplayActivity.class);
                 this.startActivity(intent);
+                toast("Switch to Motion Display");
                 break;
             case R.id.action_settings:
-                // TODO add intent for settings once created (uncomment break, remove return)
-               // break;
-
-                return super.onOptionsItemSelected(item);
+                Intent settingsIntent = new Intent(this, SettingsActivity.class);
+                this.startActivity(settingsIntent);
+                break;
+            case R.id.action_alarm_trigger:
+                Intent alarmTriggerIntent = new Intent(this, AlarmTriggerActivity.class);
+                this.startActivity(alarmTriggerIntent);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -95,5 +112,5 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), aToast, 5000).show();
     }
 
-
+//-------------------------END TESTING POST----------------------------
 }

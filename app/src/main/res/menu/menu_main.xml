@@ -12,5 +12,10 @@
         android:orderInCategory="101"
         android:title="@string/action_motion_display"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_alarm_trigger"
+        android:orderInCategory="101"
+        android:title="@string/action_alarm_trigger"
+        app:showAsAction="never" />
 
 </menu>
